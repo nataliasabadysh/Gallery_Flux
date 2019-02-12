@@ -1,6 +1,7 @@
 // Core
 import React, { Component } from 'react';
-import { List } from 'immutable';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import FlipMove from 'react-flip-move';
 
 // Instruments
@@ -10,24 +11,25 @@ import { mockedProfile } from '../../instruments/mockedData';
 // Components
 import { Composer, Catcher, Post } from '../../components';
 
+//Actions
+import { postsActions } from '../../bus/posts/actions';
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators({ fetchPostsAsync: postsActions.fetchPostsAsync, createPostAsync: postsActions.createPostAsync }, dispatch),
+    };
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Posts extends Component {
     static defaultProps = {
-        // State
-        posts:   List(),
         profile: mockedProfile,
-
-        // Actions
-        actions: {
-            // Users
-            fetchUsersAsync: () => {},
-
-            // Posts
-            fetchPostsAsync: () => {},
-            removePostAsync: () => {},
-            createPostAsync: () => {},
-            likePostAsync:   () => {},
-            unlikePostAsync: () => {},
-        },
     };
 
     componentDidMount () {
