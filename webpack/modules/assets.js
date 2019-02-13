@@ -58,8 +58,8 @@ export const setupHtml = () => ({
         new HtmlWebpackPlugin({
             inject:   false,
             template: HtmlWebpackTemplate,
-            title:    'Redux',
-            favicon:  `${statics}/logos/Redux.png`,
+            title:    'Интенсив по Redux',
+            favicon:  `${statics}/favicon/Lectrum-favicon-512x512.png`,
             meta:     [
                 {
                     name:    'viewport',
