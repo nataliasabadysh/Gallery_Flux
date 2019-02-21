@@ -1,6 +1,8 @@
 //Types
 import { SHOW_NEXT_PHOTO, SHOW_SELECTED_PHOTO, SHOW_PREVIOUS_PHOTO } from './types';
 
+// Action Creactors
+
 export const showNextPhoto = () => {
     return {
         type: SHOW_NEXT_PHOTO,

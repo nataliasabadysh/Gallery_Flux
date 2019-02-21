@@ -9,4 +9,3 @@ import './theme/init';
 import Gallery from './basic-redux';
 
 render(<Gallery />, document.getElementById('app'));
-

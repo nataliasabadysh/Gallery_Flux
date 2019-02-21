@@ -16,7 +16,9 @@ const logger = createLogger({
         error:     () => '#ff0005',
     },
 });
+// localStorage.getItem('gallery')
 const preloadedState = JSON.parse(localStorage.getItem('gallery'));
+
 const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composeEnhancers = devtools ? devtools : compose;
 const enhancedStore = composeEnhancers(applyMiddleware(logger));

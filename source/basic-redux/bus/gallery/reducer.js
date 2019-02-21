@@ -7,6 +7,7 @@ import photo4 from '../../../theme/assets/photos/4.jpeg';
 // Types
 import { SHOW_NEXT_PHOTO, SHOW_SELECTED_PHOTO, SHOW_PREVIOUS_PHOTO } from './types';
 
+// Sate
 const initialState = {
     photos: [
         { id: '1', url: photo1 },
@@ -17,9 +18,10 @@ const initialState = {
     selectedPhotoIndex: 0,
 };
 
+// reducer galleryReducer
 export const galleryReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SHOW_NEXT_PHOTO:
+        case SHOW_NEXT_PHOTO:  // Action
             if (state.selectedPhotoIndex === state.photos.length -1) {
                 return state;
             }
@@ -30,8 +32,8 @@ export const galleryReducer = (state = initialState, action) => {
             };
 
         case SHOW_PREVIOUS_PHOTO:
-            if (state.selectedPhotoIndex === 0) {
-                return state;
+            if (state.selectedPhotoIndex === 0) { 
+                return state; 
             }
 
             return {
